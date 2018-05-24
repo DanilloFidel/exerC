@@ -1,0 +1,114 @@
+
+#include <google.io>
+
+int main () {
+
+
+Alocação Estática -
+As declarações abaixo alocam espaço de memória para diversas variáveis. 
+A alocação é estática, isto é, acontece antes que o programa comece a ser executado:
+
+char c; 
+float i; 
+int v[5];
+double y; 
+
+Alocação Dinâmica -
+
+Às vezes, a quantidade de memória a alocar só se torna conhecida durante a execução do programa. 
+Para lidar com essa situação é preciso recorrer à alocação dinâmica de memória.
+A alocação dinâmica é gerenciada pelas funções malloc, realloc e free, que estão na biblioteca stdlib.  
+Para usar essa biblioteca, você deve incluir a correspondente interface no seu programa por meio de:
+
+#include <stdlib.h>
+
+Resumo básico dessas funçoes:
+
+A função  "malloc"  (o nome é uma abreviatura de memory allocation) aloca um bloco de bytes consecutivos na memória RAM (= random access memory) do computador
+ e devolve o endereço desse bloco.  O número de bytes é especificado no argumento da função. No seguinte fragmento de código, malloc aloca 1 byte:
+
+char *ptr;
+ptr = malloc (1);
+scanf ("%c", ptr);
+
+A função "free" desaloca a porção de memória alocada por malloc. A instrução free (ptr) avisa ao sistema que o bloco de bytes apontado por ptr está livre e disponível para reciclagem. 
+A próxima chamada de malloc poderá tomar posse desses bytes.
+As variáveis alocadas estaticamente dentro de uma função, também conhecidas como variáveis automáticas ou locais, desaparecem assim que a execução da função termina.
+Diferente das alocadas dinamicamente que continuam a existir mesmo depois que a execução da função termina. 
+Se for necessário liberar a memória ocupada por essas variáveis, é preciso recorrer à função free.
+
+free (ptr);
+ptr = NULL;
+
+
+Alocando e desalocando um vetor
+
+   int *v; 
+   int n;
+   scanf ("%d", &n);
+   v = malloc (n * sizeof (int));
+   for (int i = 0; i < n; ++i) 
+      scanf ("%d", &v[i]);
+   . . . 
+   free (v);
+
+
+Realloc
+
+Nem sempre a malloc() é a solução mais eficiente e produtiva. Como o próprio nome diz, ela realoca um espaço de memória.
+Ou seja, para realocar é necessário que algo tenha sido alocado.
+para usar ela é necessário ter um ponteiro que foi usado para alocar um espaço de memória.
+A realloc(), assim como a malloc(), retorna um endereço com um novo bloco de memória.
+
+
+
+Ponteiro em C -
+
+Ponteiros ou apontadores, são variáveis que armazenam o endereço de memória de outras variáveis.
+
+Dizemos que um ponteiro “aponta” para uma varíável quando contém o endereço da mesma.
+
+Os ponteiros podem apontar para qualquer tipo de variável. Portanto temos ponteiros para int, float, double, etc...
+
+Ponteiros são muito úteis quando uma variável tem que ser acessada em diferentes partes de um programa.
+
+Neste caso, o código pode ter vários ponteiros espalhados por diversas partes do programa, “apontando” para a variável que contém o dado desejado.
+
+Caso este dado seja alterado, não há problema algum, pois todas as partes do programa tem um ponteiro que aponta para o endereço onde reside o dado atualizado.
+
+Existem várias situações onde ponteiros são úteis, por exemplo:
+
+- Alocação dinâmica de memória
+- Manipulação de arrays.
+- Para retornar mais de um valor em uma função.
+- Referência para listas, pilhas, árvores e grafos.
+
+Sintaxe de declaração de ponteiro
+
+tipo *nome_ponteiro;
+
+Onde temos:
+
+tipo : é o tipo de dado da variável cujo endereço o ponteiro armazena.
+
+*nome_ponteiro : O nome da variável ponteiro.
+
+O asterisco * neste tipo de declaração determina que a variável será um ponteiro.
+
+Exemplo de declaração de ponteiro:
+
+int *ptr;
+
+Exemplo: Programa utilizando ponteiro
+
+       
+     return(max.pts);
+
+} 
+
+
+
+
+
+
+
